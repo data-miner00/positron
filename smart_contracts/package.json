@@ -1,0 +1,26 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "Contracts for Dapps",
+  "main": "truffle-config.js",
+  "author": "data-miner00",
+  "license": "MIT",
+  "scripts": {
+    "lint": "solhint 'contracts/**/*.sol'",
+    "build": "truffle compile",
+    "migrate": "truffle migrate",
+    "dev": "truffle develop",
+    "test": "truffle test"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
+    "@truffle/hdwallet-provider": "^2.0.9"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "solhint": "^3.3.7"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

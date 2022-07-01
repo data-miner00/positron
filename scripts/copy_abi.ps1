@@ -1,0 +1,1 @@
+Copy-Item './smart_contracts/build/contracts/Transaction.json' './client/src/web3/Transaction.json'
