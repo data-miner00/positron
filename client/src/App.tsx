@@ -1,9 +1,10 @@
-import TransferForm from "./components/TransferForm";
+import { useContext } from "react";
+import LandingPage from "./pages";
 
 function App() {
   return (
     <div className="App">
-      <TransferForm></TransferForm>
+      <LandingPage />
     </div>
   );
 }
