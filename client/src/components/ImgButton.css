@@ -1,0 +1,17 @@
+.img-button {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #444;
+  border-radius: 999px;
+  background: none;
+  color: white;
+}
+
+.img-button > svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
