@@ -1,8 +1,18 @@
 .button {
-  padding: 4px 6px;
-  border-radius: 5px;
+  height: 36px;
+  border-radius: 250px;
   color: white;
   border: none;
+  font-size: 0.875em;
+  font-weight: 700;
+  line-height: 1.25rem;
+  padding: 0 1.25rem;
+  background-color: #3b8d99;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #2d9bac;
 }
 
 .button.primary {
@@ -21,6 +31,21 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.button.secondary {
-  background: #3b8d99;
+.button.primary:hover {
+  /* background: linear-gradient(248.86deg, #B6509E 10.51%, #2EBAC6 93.41%); */
+  opacity: 0.9;
+}
+
+.button.small {
+  height: 28px;
+  line-height: 1rem;
+  font-size: small;
+  padding: 0 0.5rem;
+}
+
+.button.large {
+  font-size: large;
+  line-height: 1.5rem;
+  height: 48px;
+  padding: 0 1rem;
 }

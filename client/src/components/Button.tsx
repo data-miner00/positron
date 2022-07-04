@@ -12,7 +12,7 @@ type Props = {
   /**
    * How large should the button be?
    */
-  size?: "small" | "medium" | "large";
+  size?: "small" | "normal" | "large";
   /**
    * Button contents
    */
@@ -26,15 +26,16 @@ type Props = {
 function Button({
   primary,
   backgroundColor,
-  size,
+  size = "normal",
   label,
   onClick,
   ...props
 }: Props) {
-  const className = ["button", primary ? "primary" : "secondary"];
+  const className = ["button", primary ? "primary" : "", size];
 
   return (
     <button
+      style={{ backgroundColor }}
       className={className.join(" ")}
       type="button"
       onClick={onClick}
