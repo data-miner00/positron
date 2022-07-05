@@ -1,0 +1,23 @@
+.connected-profile {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  --avatar-size: 25px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  margin-left: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.avatar img {
+  max-width: 100%;
+}
+
+.ethereum-icon {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+}
