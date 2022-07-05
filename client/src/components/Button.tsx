@@ -21,6 +21,10 @@ type Props = {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Type of button
+   */
+  type?: "button" | "submit" | "reset";
 };
 
 function Button({
@@ -28,8 +32,8 @@ function Button({
   backgroundColor,
   size = "normal",
   label,
+  type = "button",
   onClick,
-  ...props
 }: Props) {
   const className = ["button", primary ? "primary" : "", size];
 
@@ -37,9 +41,8 @@ function Button({
     <button
       style={{ backgroundColor }}
       className={className.join(" ")}
-      type="button"
+      type={type}
       onClick={onClick}
-      {...props}
     >
       {label}
     </button>
