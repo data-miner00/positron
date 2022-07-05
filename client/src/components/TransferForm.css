@@ -1,0 +1,17 @@
+.transfer-form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 25px;
+  background: #262626;
+  gap: 20px;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.transfer-form h1 {
+  display: block;
+  text-align: center;
+  margin: 0;
+  font-size: 1.25em;
+}
