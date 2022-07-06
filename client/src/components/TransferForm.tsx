@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TransactionContext } from "../context/TransactionContext";
 import Button from "./Button";
 import Input from "./Input";
 
 import "./TransferForm.css";
 
 function TransferForm() {
+  const { handleChange, formData, sendTransaction } =
+    useContext<any>(TransactionContext);
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(event);
+    const { addressTo, amount, keyword, message } = formData;
+
+    if (!addressTo || !amount || !keyword || !message)
+      return alert("Invalid form");
+
+    sendTransaction();
   }
 
   return (
@@ -17,25 +26,25 @@ function TransferForm() {
         placeholder="Address To"
         type="text"
         name="addressTo"
-        handleChange={() => {}}
+        handleChange={handleChange}
       />
       <Input
         placeholder="Amount (ETH)"
-        type="text"
+        type="number"
         name="amount"
-        handleChange={() => {}}
+        handleChange={handleChange}
       />
       <Input
         placeholder="Keyword"
         type="text"
         name="keyword"
-        handleChange={() => {}}
+        handleChange={handleChange}
       />
       <Input
         placeholder="Enter Message"
         type="text"
         name="message"
-        handleChange={() => {}}
+        handleChange={handleChange}
       />
 
       <Button type="submit" primary label="Deliver Now" />
