@@ -22,7 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# environments
+.env
+
 # Smart contracts
 private-key.crt
 public-key.crt
-
