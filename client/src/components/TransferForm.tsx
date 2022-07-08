@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import Button from "./Button";
 import Input from "./Input";
@@ -9,6 +9,8 @@ function TransferForm() {
   const { handleChange, formData, sendTransaction } =
     useContext<any>(TransactionContext);
 
+  const formRef = useRef<HTMLFormElement>(null);
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const { addressTo, amount, keyword, message } = formData;
@@ -17,10 +19,12 @@ function TransferForm() {
       return alert("Invalid form");
 
     sendTransaction();
+
+    formRef?.current?.reset();
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className="transfer-form">
+    <form ref={formRef} onSubmit={handleSubmit} className="transfer-form">
       <h1>Who do you want to send today?</h1>
       <Input
         placeholder="Address To"
