@@ -16,7 +16,7 @@ function Header() {
           <nav className="nav">
             <ul>
               <li>
-                <a className="link" href="#">
+                <a className="link" href="#" rel="noopener noreferrer">
                   Documentation
                 </a>
               </li>

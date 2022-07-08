@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+
 import { contractABI, contractAddress } from "../utils/constants";
 
 // type State = {};
@@ -45,6 +46,7 @@ export const TransactionProvider = ({ children }: Props) => {
     localStorage.getItem("transactionCount") ?? 0
   );
   const [transactions, setTransactions] = useState([]);
+  const [balance, setBalance] = useState("0");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -61,6 +63,8 @@ export const TransactionProvider = ({ children }: Props) => {
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
+
+        await updateDisplayBalance();
       } else {
         console.log("No accounts found");
       }
@@ -79,6 +83,8 @@ export const TransactionProvider = ({ children }: Props) => {
       });
 
       setCurrentAccount(accounts[0]);
+      console.log(accounts);
+      await updateDisplayBalance();
     } catch (error) {
       console.log(error);
       throw new Error("No ethereum object.");
@@ -128,6 +134,17 @@ export const TransactionProvider = ({ children }: Props) => {
     }
   };
 
+  const updateDisplayBalance = async () => {
+    console.log(currentAccount);
+    // const balance = await ethereum.request({
+    //   method: "eth_getBalance",
+    //   params: [currentAccount, "latest"],
+    // });
+
+    // console.log(`Balance: ${balance}`);
+    // setBalance(Number(ethers.utils.formatEther(balance)).toFixed(2));
+  };
+
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
@@ -141,6 +158,7 @@ export const TransactionProvider = ({ children }: Props) => {
         setFormData,
         handleChange,
         sendTransaction,
+        balance,
       }}
     >
       {children}

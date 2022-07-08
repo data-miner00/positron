@@ -6,6 +6,7 @@ import { TransactionContext } from "../context/TransactionContext";
 import TransferForm from "../components/TransferForm";
 
 import "./index.css";
+import Transactions from "../components/Transactions";
 
 const LandingPage = () => {
   const {
@@ -68,6 +69,10 @@ const LandingPage = () => {
             <img src="/link.png" alt="" />
           </li>
         </ul>
+      </section>
+      <section className="transactions">
+        <h3>Recent Transactions</h3>
+        <Transactions />
       </section>
     </div>
   );
