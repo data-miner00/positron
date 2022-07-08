@@ -6,18 +6,19 @@ import { shortenAddress } from "../utils/shortenAddress";
 import "./AccountInfo.css";
 
 function AccountInfo() {
-  const { currentAccount, connectWallet } = useContext<any>(TransactionContext);
+  const { currentAccount, connectWallet, balance } =
+    useContext<any>(TransactionContext);
 
   const ConnectWalletButton = () => (
     <Button onClick={connectWallet} primary label="Connect Metamask" />
   );
   const ConnectedProfile = () => (
     <div className="connected-profile">
-      <div>0 ETH</div>
+      <div>{balance} ETH</div>
       <div className="ethereum-icon">
         <FaEthereum />
       </div>
-      <div>{shortenAddress("0x6b921b92f2ec8ec3adeb38452a5719ac103f3f01")}</div>
+      <div>{shortenAddress(currentAccount)}</div>
       <div className="avatar">
         <img src="/44407884.png" alt="pfp" />
       </div>
