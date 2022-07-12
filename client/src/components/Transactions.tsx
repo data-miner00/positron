@@ -17,7 +17,6 @@ function Transaction({
   addressTo,
   addressFrom,
   timestamp,
-  message,
   keyword,
   amount,
 }: Tx) {
@@ -25,9 +24,9 @@ function Transaction({
   const id = useId();
   return (
     <div className="transaction">
-      {/* <img src={gifUrl} alt="gif" /> */}
-
-      <div className="image"></div>
+      <div className="image">
+      <img height="150" src={gifUrl} alt="gif" />
+      </div>
 
       <div className="txinfo">
         <div className="sender field">
