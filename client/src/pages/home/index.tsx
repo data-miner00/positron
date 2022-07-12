@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import Button from "../components/Button";
-import Header from "../components/Header";
-import Input from "../components/Input";
-import { TransactionContext } from "../context/TransactionContext";
-import TransferForm from "../components/TransferForm";
 
-import "./index.css";
-import Transactions from "../components/Transactions";
+import Button from "../../components/Button";
 
-const LandingPage = () => {
+import { TransactionContext } from "../../context/TransactionContext";
+import TransferForm from "../../components/TransferForm";
+
+import Transactions from "../../components/Transactions";
+
+import "./styles.css"
+
+function HomePage() {
   const {
     connectWallet,
     currentAccount,
@@ -30,7 +31,6 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      <Header />
       <section className="landing">
         <div className="introduction">
           <p className="accented">Now live on testnet!</p>
@@ -76,6 +76,7 @@ const LandingPage = () => {
       </section>
     </div>
   );
-};
+}
 
-export default LandingPage;
+
+export default HomePage;

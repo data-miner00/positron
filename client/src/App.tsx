@@ -1,11 +1,13 @@
-import { useContext } from "react";
-import LandingPage from "./pages";
+import Header from "./components/Header";
+import Routing from "./setup/routes-manager";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <LandingPage />
+      <Header />
+      <Routing />
     </div>
   );
 }
