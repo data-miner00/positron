@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1536px;
+  max-width: var(--screen-xl);
   align-items: center;
 }
 
@@ -56,4 +56,10 @@
   width: 2px;
   height: 25px;
   background: #444;
+}
+
+@media screen and (min-width: var(--screen-2xl)) {
+  .header {
+    max-width: var(--screen-2xl);
+  }
 }
