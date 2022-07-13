@@ -1,31 +1,23 @@
-import "./Transactions.css";
-import useGiphy from "../common/hooks/useGiphy";
 import { useId } from "react";
 import { FaEthereum } from "react-icons/fa";
-import { shortenAddress } from "../utils/shortenAddress";
+import useGiphy from "../../../../common/hooks/useGiphy";
+import { shortenAddress } from "../../../../utils/shortenAddress";
+import { TransactionCardProps } from "../../models";
+import "./styles.css";
 
-type Tx = {
-  addressTo: string;
-  addressFrom: string;
-  timestamp: string;
-  message: string;
-  keyword: string;
-  amount: string;
-};
-
-function Transaction({
+function TransactionCard({
   addressTo,
   addressFrom,
   timestamp,
   keyword,
   amount,
-}: Tx) {
+}: TransactionCardProps) {
   const gifUrl = useGiphy(keyword);
   const id = useId();
   return (
     <div className="transaction">
       <div className="image">
-      <img height="150" src={gifUrl} alt="gif" />
+        <img height="150" src={gifUrl} alt="gif" />
       </div>
 
       <div className="txinfo">
@@ -44,23 +36,10 @@ function Transaction({
           </span>
         </div>
         <div className="line-deco" aria-hidden></div>
-        <div className="timestamp">2 hrs ago</div>
+        <div className="timestamp">{timestamp}</div>
       </div>
     </div>
   );
 }
 
-function Transactions() {
-  return (
-    <Transaction
-      addressTo="0x4392805C28f47d334856D33d62F8ec539933478D"
-      addressFrom="0x4392805C28f47d334856D33d62F8ec539933478D"
-      timestamp="today"
-      message="hello world"
-      keyword="hello"
-      amount="0.1"
-    />
-  );
-}
-
-export default Transactions;
+export default TransactionCard;

@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import { TransactionContext } from "../../context/TransactionContext";
 import TransferForm from "../../components/TransferForm";
 
-import Transactions from "../../components/Transactions";
+import TransactionsContainer from "./components/TransactionsContainer";
 
 import "./styles.css";
 
@@ -77,7 +77,7 @@ function HomePage() {
       </section>
       <section className="transactions">
         <h3>Recent Transactions</h3>
-        <Transactions />
+        <TransactionsContainer />
       </section>
     </div>
   );
