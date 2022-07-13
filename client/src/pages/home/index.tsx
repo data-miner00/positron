@@ -7,7 +7,7 @@ import TransferForm from "../../components/TransferForm";
 
 import Transactions from "../../components/Transactions";
 
-import "./styles.css"
+import "./styles.css";
 
 function HomePage() {
   const {
@@ -45,7 +45,12 @@ function HomePage() {
             . No more dry and boring transaction like it used to.
           </p>
 
-          <Button label="Connect Metamask" primary size="large" />
+          <Button
+            label="Connect Metamask"
+            primary
+            size="large"
+            onClick={connectWallet}
+          />
         </div>
 
         <TransferForm />
@@ -77,6 +82,5 @@ function HomePage() {
     </div>
   );
 }
-
 
 export default HomePage;
