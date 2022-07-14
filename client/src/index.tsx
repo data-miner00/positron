@@ -9,13 +9,13 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <TransactionProvider>
-      <React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <TransactionProvider>
         <App />
-      </React.StrictMode>
-    </TransactionProvider>
-  </BrowserRouter>
+      </TransactionProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
