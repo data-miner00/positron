@@ -21,3 +21,8 @@
   display: flex;
   align-items: center;
 }
+
+.balance {
+  font-weight: 600;
+  color: white;
+}

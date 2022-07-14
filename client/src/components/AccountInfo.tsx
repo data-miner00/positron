@@ -14,7 +14,9 @@ function AccountInfo() {
   );
   const ConnectedProfile = () => (
     <div className="connected-profile">
-      <div>{balance} ETH</div>
+      <div>
+        <span className="balance">{balance} ETH</span>
+      </div>
       <div className="ethereum-icon">
         <FaEthereum />
       </div>
