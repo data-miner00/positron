@@ -6,3 +6,13 @@ export type TransactionCardProps = {
   keyword: string;
   amount: string;
 };
+
+export type InspiringAttributes = {
+  image: string;
+  name: string;
+  link: string;
+};
+
+export type InspiredContainerProps = {
+  inspirings: Array<InspiringAttributes>;
+};

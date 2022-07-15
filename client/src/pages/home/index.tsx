@@ -6,8 +6,11 @@ import { TransactionContext } from "../../context/TransactionContext";
 import TransferForm from "../../components/TransferForm";
 
 import TransactionsContainer from "./components/TransactionsContainer";
+import { cardano, chainlink, ens, oneinch, ren } from "../../assets";
 
 import "./styles.css";
+import { InspiringAttributes } from "./models";
+import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 
 function HomePage() {
   const {
@@ -28,6 +31,34 @@ function HomePage() {
 
     sendTransaction();
   };
+
+  const inspirings: Array<InspiringAttributes> = [
+    {
+      name: "Cardano",
+      image: cardano,
+      link: "https://cardano.org/",
+    },
+    {
+      name: "1inch",
+      image: oneinch,
+      link: "https://1inch.io/",
+    },
+    {
+      name: "ENS",
+      image: ens,
+      link: "https://ens.domains/",
+    },
+    {
+      name: "Ren",
+      image: ren,
+      link: "https://renproject.io/",
+    },
+    {
+      name: "Chainlink",
+      image: chainlink,
+      link: "https://chain.link/",
+    },
+  ];
 
   return (
     <div className="landing-page">
@@ -56,26 +87,11 @@ function HomePage() {
         <TransferForm />
       </section>
       <section className="inspired">
-        <h3>Inspired By</h3>
-        <ul>
-          <li>
-            <img src="/ada.webp" alt="" />
-          </li>
-          <li>
-            <img src="/1inch.png" alt="" />
-          </li>
-          <li>
-            <img src="/matic.png" alt="" />
-          </li>
-          <li>
-            <img src="/ren.png" alt="" />
-          </li>
-          <li>
-            <img src="/link.png" alt="" />
-          </li>
-        </ul>
+        <h3>Heavily Inspired By Parachain Ecosystem</h3>
+        <InspiredContainer inspirings={inspirings} />
       </section>
       <section className="transactions">
+        <h3>See What People Around The World Transact</h3>
         <h3>Recent Transactions</h3>
         <TransactionsContainer />
       </section>

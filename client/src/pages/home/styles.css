@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   gap: 100px;
-  height: 70vh;
+  height: 100vh;
 }
 
 .landing-page .landing .introduction {
@@ -63,35 +63,9 @@
 .landing-page .inspired h3,
 .landing-page .transactions h3 {
   text-transform: uppercase;
-  color: #a56379;
+  color: #fff;
   text-align: center;
-}
-
-.landing-page .inspired ul {
-  max-width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  list-style-type: none;
-  justify-content: center;
-  gap: 30px;
-}
-
-.landing-page .inspired img {
-  height: 40px;
-  position: relative;
-  filter: invert(100%);
-}
-
-.landing-page .inspired img::after {
-  position: absolute;
-  content: "";
-  display: block;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
 }
 
 .landing-page .transactions {

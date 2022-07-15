@@ -1,0 +1,15 @@
+.inspired-container {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  list-style-type: none;
+  justify-content: center;
+  gap: 30px;
+}
+
+.inspired-container img {
+  height: 50px;
+  position: relative;
+  filter: invert(100%);
+}
