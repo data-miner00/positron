@@ -2,6 +2,7 @@ import { RiMoonClearFill } from "react-icons/ri";
 import { AiFillGithub } from "react-icons/ai";
 import AccountInfo from "./AccountInfo";
 import ImgButton from "./ImgButton";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
@@ -9,7 +10,9 @@ function Header() {
     <div className="header-wrapper">
       <header className="header">
         <div className="logo">
-          <span>Positron+</span>
+          <Link to="/">
+            <span>Positron+</span>
+          </Link>
         </div>
 
         <div className="right">
