@@ -67,7 +67,8 @@ export const TransactionProvider = ({ children }: Props) => {
 
   // Check of metamask is connected
   const checkIfWalletIsConnected = async () => {
-    if (!ethereum) return alert("Please install metamask");
+    if (!ethereum && !ethereum.isMetamask)
+      return alert("Please install metamask");
 
     try {
       const accounts = await ethereum.request({ method: "eth_accounts" });
@@ -76,7 +77,6 @@ export const TransactionProvider = ({ children }: Props) => {
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
 
-        await updateDisplayBalance();
         await getAllTransactions();
         console.log(transactions);
       } else {
@@ -125,10 +125,7 @@ export const TransactionProvider = ({ children }: Props) => {
         const currentTransactionCount =
           await transactionsContract.getTransactionCount();
 
-        window.localStorage.setItem(
-          "transactionCount",
-          currentTransactionCount
-        );
+        localStorage.setItem("transactionCount", currentTransactionCount);
       }
     } catch (error) {
       console.log(error);
@@ -146,8 +143,6 @@ export const TransactionProvider = ({ children }: Props) => {
       });
 
       setCurrentAccount(accounts[0]);
-      console.log(accounts);
-      await updateDisplayBalance();
     } catch (error) {
       console.log(error);
       throw new Error("No ethereum object.");
@@ -198,7 +193,12 @@ export const TransactionProvider = ({ children }: Props) => {
   };
 
   const updateDisplayBalance = async () => {
-    console.log(currentAccount);
+    const provider = new ethers.providers.Web3Provider(ethereum);
+
+    const balance = await provider.getBalance(currentAccount);
+    const balanceInEth = Number(ethers.utils.formatEther(balance)).toFixed(2);
+
+    setBalance(balanceInEth);
     // const balance = await ethereum.request({
     //   method: "eth_getBalance",
     //   params: [currentAccount, "latest"],
@@ -212,6 +212,10 @@ export const TransactionProvider = ({ children }: Props) => {
     checkIfWalletIsConnected();
     checkIfTransactionsExists();
   }, []);
+
+  useEffect(() => {
+    updateDisplayBalance();
+  }, [currentAccount]);
 
   return (
     <TransactionContext.Provider
