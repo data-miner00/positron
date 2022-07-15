@@ -9,8 +9,9 @@ import TransactionsContainer from "./components/TransactionsContainer";
 import { cardano, chainlink, ens, oneinch, ren } from "../../assets";
 
 import "./styles.css";
-import { InspiringAttributes } from "./models";
+import { InspiringAttributes, StatsAttributes } from "./models";
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
+import StatsContainer from "./components/StatsContainer";
 
 function HomePage() {
   const {
@@ -60,6 +61,21 @@ function HomePage() {
     },
   ];
 
+  const stats: Array<StatsAttributes> = [
+    {
+      figure: "4 Txns",
+      description: "Transaction count as of 5 July 2022",
+    },
+    {
+      figure: "6 ETH",
+      description: "Total ETH volume as of 5 July 2022",
+    },
+    {
+      figure: "$5k",
+      description: "Volume in USD as of 5 July 2022",
+    },
+  ];
+
   return (
     <div className="landing-page">
       <section className="landing">
@@ -86,10 +102,16 @@ function HomePage() {
 
         <TransferForm />
       </section>
+
       <section className="inspired">
         <h3>Heavily Inspired By Parachain Ecosystem</h3>
         <InspiredContainer inspirings={inspirings} />
       </section>
+
+      <section className="simplestats">
+        <StatsContainer stats={stats} />
+      </section>
+
       <section className="transactions">
         <h3>See What People Around The World Transact</h3>
         <h3>Recent Transactions</h3>
