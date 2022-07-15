@@ -24,10 +24,10 @@ export function formatTimeDiff(past: Date): string {
 
   switch (true) {
     case elapsed(unixTime, Time.Years) > 0:
-      formattedTimeString = elapsed(unixTime, Time.Years) + " years ago";
+      formattedTimeString = elapsed(unixTime, Time.Years) + " yrs ago";
       break;
     case elapsed(unixTime, Time.Months) > 0:
-      formattedTimeString = elapsed(unixTime, Time.Months) + " months ago";
+      formattedTimeString = elapsed(unixTime, Time.Months) + " month ago";
       break;
     case elapsed(unixTime, Time.Weeks) > 0:
       formattedTimeString = elapsed(unixTime, Time.Weeks) + " weeks ago";
@@ -36,10 +36,10 @@ export function formatTimeDiff(past: Date): string {
       formattedTimeString = elapsed(unixTime, Time.Days) + " days ago";
       break;
     case elapsed(unixTime, Time.Hours) > 0:
-      formattedTimeString = elapsed(unixTime, Time.Hours) + " hours ago";
+      formattedTimeString = elapsed(unixTime, Time.Hours) + " hrs ago";
       break;
     case elapsed(unixTime, Time.Minutes) > 0:
-      formattedTimeString = elapsed(unixTime, Time.Minutes) + " minutes ago";
+      formattedTimeString = elapsed(unixTime, Time.Minutes) + " mins ago";
       break;
     default:
       formattedTimeString = elapsed(unixTime, Time.Seconds) + " seconds ago";
