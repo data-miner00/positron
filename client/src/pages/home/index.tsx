@@ -104,7 +104,9 @@ function HomePage() {
       </section>
 
       <section className="inspired">
-        <h3>Heavily Inspired By Parachain Ecosystem</h3>
+        <h3>
+          Inspired By <span>Vibrant</span> Ecosystem
+        </h3>
         <InspiredContainer inspirings={inspirings} />
       </section>
 
@@ -113,8 +115,13 @@ function HomePage() {
       </section>
 
       <section className="transactions">
-        <h3>See What People Around The World Transact</h3>
-        <h3>Recent Transactions</h3>
+        <h3>
+          Happening across <span>the</span> world
+        </h3>
+        <p>
+          Take a look at the transactions people made recently via{" "}
+          <span>Positron+</span>
+        </p>
         <TransactionsContainer />
       </section>
     </div>
