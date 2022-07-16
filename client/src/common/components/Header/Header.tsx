@@ -1,7 +1,6 @@
 import { RiMoonClearFill } from "react-icons/ri";
-import { AiFillGithub } from "react-icons/ai";
-import AccountInfo from "./AccountInfo";
-import ImgButton from "./ImgButton";
+import AccountInfo from "./components/AccountInfo";
+import ImgButton from "../../../components/ImgButton";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -28,11 +27,6 @@ function Header() {
                   Explorer
                 </a>
               </li>
-              {/* <li>
-                <a href="#">
-                  <ImgButton img={<AiFillGithub />} />
-                </a>
-              </li> */}
               <li>
                 <ImgButton img={<RiMoonClearFill />} />
               </li>
