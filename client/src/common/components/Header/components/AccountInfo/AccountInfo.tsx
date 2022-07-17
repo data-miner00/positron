@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { TransactionContext } from "../../../../../context/TransactionContext";
+import { TransactionContext } from "context/TransactionContext";
 import { FaEthereum } from "react-icons/fa";
-import Button from "../../../../../components/Button";
-import { shortenAddress } from "../../../../../utils/shortenAddress";
+import Button from "components/Button";
+import { shortenAddress } from "utils/shortenAddress";
 import "./AccountInfo.css";
 
 function AccountInfo() {
