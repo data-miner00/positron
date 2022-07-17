@@ -1,13 +1,35 @@
-import { useContext } from "react";
-import { TransactionContext } from "context/TransactionContext";
+import { useContext, useState, useEffect } from "react";
 import { FaEthereum } from "react-icons/fa";
 import Button from "components/Button";
 import { shortenAddress } from "utils/shortenAddress";
 import "./AccountInfo.css";
+import { AppContext } from "setup/app-context-manager/AppContext";
+import {
+  getAccountBalanceAsync,
+  getWalletAccountsAsync,
+} from "setup/app-context-manager/utils";
 
 function AccountInfo() {
-  const { currentAccount, connectWallet, balance } =
-    useContext<any>(TransactionContext);
+  const { ethereum } = window;
+
+  const { currentAccount, setCurrentAccount } = useContext(AppContext);
+
+  async function connectWallet() {
+    const accounts: Array<string> = await getWalletAccountsAsync(ethereum);
+
+    setCurrentAccount(accounts[0]);
+  }
+
+  const [balance, setBalance] = useState<string>("");
+
+  async function updateBalance() {
+    const bal = await getAccountBalanceAsync(ethereum, currentAccount);
+    setBalance(bal);
+  }
+
+  useEffect(() => {
+    updateBalance();
+  }, [currentAccount]);
 
   const ConnectWalletButton = () => (
     <Button onClick={connectWallet} primary label="Connect Metamask" />

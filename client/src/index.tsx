@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { TransactionProvider } from "./context/TransactionContext";
+import { AppContextProvider } from "setup/app-context-manager/AppContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <TransactionProvider>
+      <AppContextProvider>
         <App />
-      </TransactionProvider>
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

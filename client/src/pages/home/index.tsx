@@ -1,85 +1,26 @@
-import { useContext } from "react";
+import { motion } from "framer-motion";
 
 import Button from "../../components/Button";
-
-import { TransactionContext } from "../../context/TransactionContext";
 import TransferForm from "../../components/TransferForm";
 
 import TransactionsContainer from "./components/TransactionsContainer";
-import { cardano, chainlink, ens, oneinch, ren } from "../../assets";
 
 import "./styles.css";
-import { InspiringAttributes, StatsAttributes } from "./models";
+
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";
+import { inspirings, stats } from "./constants";
 
 function HomePage() {
-  const {
-    connectWallet,
-    currentAccount,
-    handleChange,
-    sendTransaction,
-    formData,
-    // isLoading,
-  } = useContext<any>(TransactionContext);
-
-  const handleSubmit = (event: Event) => {
-    const { addressTo, amount, keyword, message } = formData;
-
-    event.preventDefault();
-
-    if (!addressTo || !amount || !keyword || !message) return;
-
-    sendTransaction();
-  };
-
-  const inspirings: Array<InspiringAttributes> = [
-    {
-      name: "Cardano",
-      image: cardano,
-      link: "https://cardano.org/",
-    },
-    {
-      name: "1inch",
-      image: oneinch,
-      link: "https://1inch.io/",
-    },
-    {
-      name: "ENS",
-      image: ens,
-      link: "https://ens.domains/",
-    },
-    {
-      name: "Ren",
-      image: ren,
-      link: "https://renproject.io/",
-    },
-    {
-      name: "Chainlink",
-      image: chainlink,
-      link: "https://chain.link/",
-    },
-  ];
-
-  const stats: Array<StatsAttributes> = [
-    {
-      figure: "4 Txns",
-      description: "Transaction count as of 5 July 2022",
-    },
-    {
-      figure: "6 ETH",
-      description: "Total ETH volume as of 5 July 2022",
-    },
-    {
-      figure: "$5k",
-      description: "Volume in USD as of 5 July 2022",
-    },
-  ];
-
   return (
     <div className="landing-page">
       <section className="landing">
-        <div className="introduction">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="introduction"
+        >
           <p className="accented">Now live on testnet!</p>
           <h1 className="heading">
             Make Transactions that <span className="gradient">MATTERS</span>.
@@ -96,9 +37,9 @@ function HomePage() {
             label="Connect Metamask"
             primary
             size="large"
-            onClick={connectWallet}
+            onClick={console.log}
           />
-        </div>
+        </motion.div>
 
         <TransferForm />
       </section>

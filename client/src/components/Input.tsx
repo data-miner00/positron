@@ -6,7 +6,10 @@ type Props = {
   name: string;
   type: string;
   value?: string;
-  handleChange: (event: React.ChangeEvent, name: string) => void;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    name: string
+  ) => void;
 };
 
 function Input({

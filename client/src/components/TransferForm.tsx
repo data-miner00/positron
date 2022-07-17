@@ -1,57 +1,94 @@
-import React, { useContext, useRef } from "react";
-import { TransactionContext } from "../context/TransactionContext";
+import { TransactionFormAttributes } from "pages/home/models";
+import React, { useContext, useRef, useState } from "react";
+import { AppContext } from "setup/app-context-manager/AppContext";
+import { Transaction } from "setup/app-context-manager/models";
+import { sendTransactionAsync } from "setup/app-context-manager/utils";
 import Button from "./Button";
 import Input from "./Input";
 
 import "./TransferForm.css";
 
+const { ethereum } = window;
+
 function TransferForm() {
-  const { handleChange, formData, sendTransaction } =
-    useContext<any>(TransactionContext);
+  const { currentAccount } = useContext(AppContext);
 
-  const formRef = useRef<HTMLFormElement>(null);
+  const [txFormData, setTxFormData] = useState<TransactionFormAttributes>({
+    addressTo: "",
+    amountInEth: "",
+    keyword: "",
+    message: "",
+  });
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    console.log(ethereum, txFormData);
+
+    const { addressTo, amountInEth, keyword, message } = txFormData;
     event.preventDefault();
-    const { addressTo, amount, keyword, message } = formData;
 
-    if (!addressTo || !amount || !keyword || !message)
-      return alert("Invalid form");
+    if (!addressTo || !amountInEth || !keyword || !message) {
+      return;
+    }
 
-    sendTransaction();
+    const tx: Transaction = {
+      addressFrom: currentAccount,
+      addressTo,
+      amount: amountInEth,
+      keyword,
+      message,
 
+      // unused fields
+      timestamp: new Date(),
+    };
+
+    await sendTransactionAsync(ethereum, tx);
+  }
+
+  function onFormChange(
+    event: React.ChangeEvent<HTMLInputElement>,
+    name: string
+  ) {
+    setTxFormData((prevState) => ({
+      ...prevState,
+      [name]: event.target.value,
+    }));
+  }
+
+  function clearFormData() {
     formRef?.current?.reset();
   }
 
+  const formRef = useRef<HTMLFormElement>(null);
+
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="transfer-form">
+    <form ref={formRef} onSubmit={onFormSubmit} className="transfer-form">
       <h1>Who do you want to send today?</h1>
       <Input
         placeholder="Address To"
         type="text"
         name="addressTo"
-        handleChange={handleChange}
+        handleChange={onFormChange}
       />
       <Input
         placeholder="Amount (ETH)"
         type="number"
-        name="amount"
-        handleChange={handleChange}
+        name="amountInEth"
+        handleChange={onFormChange}
       />
       <Input
         placeholder="Keyword"
         type="text"
         name="keyword"
-        handleChange={handleChange}
+        handleChange={onFormChange}
       />
       <Input
         placeholder="Enter Message"
         type="text"
         name="message"
-        handleChange={handleChange}
+        handleChange={onFormChange}
       />
 
-      <Button type="submit" primary label="Deliver Now" />
+      <Button type="submit" primary label="Deliver Now" onClick={console.log} />
     </form>
   );
 }

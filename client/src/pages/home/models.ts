@@ -25,3 +25,10 @@ export type StatsAttributes = {
 export type StatsContainerProps = {
   stats: Array<StatsAttributes>;
 };
+
+export type TransactionFormAttributes = {
+  addressTo: string;
+  amountInEth: string;
+  keyword: string;
+  message: string;
+};
