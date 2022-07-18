@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from "react";
 import { AppContext } from "setup/app-context-manager/AppContext";
 import { Transaction } from "setup/app-context-manager/models";
 import { sendTransactionAsync } from "setup/app-context-manager/utils";
-import Button from "./Button";
+import Button from "common/components/Button";
 import Input from "./Input";
 
 import "./TransferForm.css";

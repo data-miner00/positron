@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { FaEthereum } from "react-icons/fa";
-import Button from "components/Button";
+import Button from "common/components/Button";
 import { shortenAddress } from "utils/shortenAddress";
 import "./AccountInfo.css";
 import { AppContext } from "setup/app-context-manager/AppContext";

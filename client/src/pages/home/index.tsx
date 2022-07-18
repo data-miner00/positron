@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import Button from "../../components/Button";
+import Button from "common/components/Button";
 import TransferForm from "../../components/TransferForm";
 
 import TransactionsContainer from "./components/TransactionsContainer";
