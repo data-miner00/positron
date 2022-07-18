@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Button from "../components/Button";
+import Button from "./Button";
 
 type ButtonComponentStory = ComponentStory<typeof Button>;
 
