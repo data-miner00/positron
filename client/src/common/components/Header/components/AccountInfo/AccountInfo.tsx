@@ -22,13 +22,13 @@ function AccountInfo() {
 
   const [balance, setBalance] = useState<string>("");
 
-  async function updateBalance() {
+  async function updateBalanceAsync() {
     const bal = await getAccountBalanceAsync(ethereum, currentAccount);
     setBalance(bal);
   }
 
   useEffect(() => {
-    updateBalance();
+    updateBalanceAsync();
   }, [currentAccount]);
 
   const ConnectWalletButton = () => (
