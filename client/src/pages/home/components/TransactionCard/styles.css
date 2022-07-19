@@ -41,6 +41,12 @@
   display: block;
 }
 
+.transaction .txinfo span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .transaction .txinfo label {
   text-transform: uppercase;
   font-size: 10px;
