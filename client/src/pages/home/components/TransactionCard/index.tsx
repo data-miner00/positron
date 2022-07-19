@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { FaEthereum } from "react-icons/fa";
-import useGiphy from "../../../../common/hooks/useGiphy";
-import { shortenAddress } from "../../../../utils/shortenAddress";
+import useGiphy from "common/hooks/useGiphy";
+import { shortenAddress } from "utils/shortenAddress";
 import { TransactionCardProps } from "../../models";
 import "./styles.css";
 
@@ -11,6 +11,7 @@ function TransactionCard({
   timestamp,
   keyword,
   amount,
+  message,
 }: TransactionCardProps) {
   const gifUrl = useGiphy(keyword);
   const id = useId();
@@ -28,6 +29,10 @@ function TransactionCard({
         <div className="receiver field">
           <label htmlFor={`receiver-${id}`}>Receiver</label>
           <span id={`receiver-${id}`}>{shortenAddress(addressTo, 8)}</span>
+        </div>
+        <div className="message field">
+          <label htmlFor={`message-${id}`}>Message</label>
+          <span id={`message-${id}`}>{message}</span>
         </div>
         <div className="amount field">
           <label htmlFor={`amount-${id}`}>Amount</label>
