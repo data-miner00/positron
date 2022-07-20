@@ -4,7 +4,7 @@ import { AppContext } from "setup/app-context-manager/AppContext";
 import { Transaction } from "setup/app-context-manager/models";
 import { sendTransactionAsync } from "setup/app-context-manager/utils";
 import Button from "common/components/Button";
-import Input from "./Input";
+import Input from "components/Input";
 
 import "./TransferForm.css";
 

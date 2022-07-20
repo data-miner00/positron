@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import Button from "common/components/Button";
-import TransferForm from "../../components/TransferForm";
+import TransferForm from "./components/TransferForm";
 
 import TransactionsContainer from "./components/TransactionsContainer";
 
