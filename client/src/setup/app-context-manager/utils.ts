@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { contractABI, contractAddress } from "utils/constants";
+import { contractABI, contractAddress } from "common/constants";
 import { Transaction } from "./models";
 
 export function getEthereumObject() {
