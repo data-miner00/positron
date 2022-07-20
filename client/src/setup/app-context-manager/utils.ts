@@ -8,7 +8,7 @@ export function getEthereumObject() {
   return ethereum;
 }
 
-export function getContract(ethereum: any) {
+export function getContract(ethereum: any): ethers.Contract {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const transactionContract = new ethers.Contract(
@@ -20,7 +20,9 @@ export function getContract(ethereum: any) {
   return transactionContract;
 }
 
-export async function getAllTransactionsAsync(ethereum: any) {
+export async function getAllTransactionsAsync(
+  ethereum: any
+): Promise<Array<Transaction> | void> {
   if (!ethereum) return console.log("No ethereum object");
 
   const transactionContract = getContract(ethereum);
@@ -50,12 +52,15 @@ export async function getWalletAccountsAsync(
   return accounts;
 }
 
-export async function sendTransactionAsync(ethereum: any, tx: Transaction) {
+export async function sendTransactionAsync(
+  ethereum: any,
+  tx: Transaction
+): Promise<void> {
   await sendEthersAsync(ethereum, tx);
   await writeToBlockchainAsync(ethereum, tx);
 }
 
-async function sendEthersAsync(ethereum: any, tx: Transaction) {
+async function sendEthersAsync(ethereum: any, tx: Transaction): Promise<void> {
   const convertedAmount = ethers.utils.parseEther(tx.amount);
 
   await ethereum.request({
@@ -74,7 +79,7 @@ async function sendEthersAsync(ethereum: any, tx: Transaction) {
 async function writeToBlockchainAsync(
   ethereum: any,
   { addressTo, amount, message, keyword }: Transaction
-) {
+): Promise<void> {
   const transactionContract = getContract(ethereum);
   const convertedAmount = ethers.utils.parseEther(amount);
 
@@ -91,7 +96,7 @@ async function writeToBlockchainAsync(
 export async function getAccountBalanceAsync(
   ethereum: any,
   currentAccount: string
-) {
+): Promise<string> {
   if (!currentAccount) throw new Error("No account provided.");
 
   const provider = new ethers.providers.Web3Provider(ethereum);
