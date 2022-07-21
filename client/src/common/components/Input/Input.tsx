@@ -1,16 +1,5 @@
-import React from "react";
+import { InputProps } from "../models";
 import "./Input.css";
-
-type Props = {
-  placeholder: string;
-  name: string;
-  type: string;
-  value?: string;
-  handleChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    name: string
-  ) => void;
-};
 
 function Input({
   placeholder,
@@ -19,7 +8,7 @@ function Input({
   value,
   handleChange,
   ...props
-}: Props) {
+}: InputProps) {
   return (
     <input
       placeholder={placeholder}

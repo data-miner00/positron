@@ -1,12 +1,7 @@
-import React from "react";
+import { ImgButtonProps } from "../models";
 import "./ImgButton.css";
 
-type Props = {
-  img: React.ReactNode;
-  onClick?: () => void;
-};
-
-function ImgButton({ img, onClick }: Props) {
+function ImgButton({ img, onClick }: ImgButtonProps) {
   return (
     <button className="img-button" onClick={onClick}>
       {img}

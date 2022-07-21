@@ -1,6 +1,6 @@
 import { RiMoonClearFill } from "react-icons/ri";
 import AccountInfo from "./components/AccountInfo";
-import ImgButton from "../../../components/ImgButton";
+import ImgButton from "common/components/ImgButton";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
