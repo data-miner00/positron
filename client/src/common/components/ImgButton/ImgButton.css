@@ -8,10 +8,15 @@
   border-radius: 999px;
   background: none;
   color: white;
+  transition: border-color 0.4s ease;
 }
 
 .img-button > svg {
   display: block;
   width: 20px;
   height: 20px;
+}
+
+.img-button:hover {
+  border-color: #666;
 }
