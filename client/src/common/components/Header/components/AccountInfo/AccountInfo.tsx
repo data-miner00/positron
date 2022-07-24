@@ -20,7 +20,7 @@ function AccountInfo() {
     setCurrentAccount(accounts[0]);
   }
 
-  const [balance, setBalance] = useState<string>("");
+  const [balance, setBalance] = useState<string>("0.00");
 
   async function updateBalanceAsync() {
     const bal = await getAccountBalanceAsync(ethereum, currentAccount);
