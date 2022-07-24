@@ -14,13 +14,13 @@ const label = "Click me";
 
 const Template = (args: ButtonProps) => <Button {...args} />;
 
-export const Primary: ButtonComponentStory = Template.bind({});
-Primary.args = {
-  primary: true,
+export const Default: ButtonComponentStory = Template.bind({});
+Default.args = {
   label,
 };
 
-export const Secondary: ButtonComponentStory = Template.bind({});
-Secondary.args = {
+export const Primary: ButtonComponentStory = Template.bind({});
+Primary.args = {
+  primary: true,
   label,
 };
