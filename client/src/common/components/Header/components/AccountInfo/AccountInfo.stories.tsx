@@ -1,11 +1,11 @@
 import { ComponentMeta } from "@storybook/react";
 import { AppContext } from "setup/app-context-manager/AppContext";
 import { withReactContext } from "storybook-react-context";
-import TransferForm from "./TransferForm";
+import AccountInfo from "./AccountInfo";
 
 export default {
-  title: "Fund Transfer Form",
-  component: TransferForm,
+  title: "Account Info",
+  component: AccountInfo,
   decorators: [
     withReactContext({
       Context: AppContext,
@@ -14,6 +14,6 @@ export default {
       },
     }),
   ],
-} as ComponentMeta<typeof TransferForm>;
+} as ComponentMeta<typeof AccountInfo>;
 
-export const Default = () => <TransferForm />;
+export const Default = () => <AccountInfo />;
