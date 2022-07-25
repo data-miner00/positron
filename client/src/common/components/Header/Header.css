@@ -39,6 +39,11 @@
   text-decoration: none;
   display: block;
   color: inherit;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #fff;
 }
 
 .nav a.link {
