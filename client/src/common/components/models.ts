@@ -33,10 +33,25 @@ export type ButtonProps = {
 };
 
 export type InputProps = {
+  /**
+   * The placeholder text when no value is supplied
+   */
   placeholder: string;
+  /**
+   * The label for the input
+   */
   name: string;
-  type: string;
+  /**
+   * Type of input
+   */
+  type: "number" | "password" | "text" | "email";
+  /**
+   * The initial value for the field
+   */
   value?: string;
+  /**
+   * The callback function when change is detected
+   */
   handleChange: (
     event: React.ChangeEvent<HTMLInputElement>,
     name: string
