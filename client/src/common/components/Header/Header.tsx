@@ -18,12 +18,17 @@ function Header() {
           <nav className="nav">
             <ul>
               <li>
-                <a className="link" href="#" rel="noopener noreferrer">
-                  Documentation
-                </a>
+                <Link className="link" to="/transactions">
+                  Transactions
+                </Link>
               </li>
               <li>
-                <a className="link" href="#">
+                <a
+                  className="link"
+                  href="https://etherscan.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Explorer
                 </a>
               </li>
