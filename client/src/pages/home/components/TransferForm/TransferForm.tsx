@@ -11,7 +11,7 @@ import "./TransferForm.css";
 const { ethereum } = window;
 
 function TransferForm() {
-  const { currentAccount } = useContext(AppContext);
+  const { currentAccount, updateBalanceAsync } = useContext(AppContext);
 
   const [txFormData, setTxFormData] = useState<TransactionFormAttributes>({
     addressTo: "",
@@ -41,7 +41,14 @@ function TransferForm() {
       timestamp: new Date(),
     };
 
-    await sendTransactionAsync(ethereum, tx);
+    try {
+      await sendTransactionAsync(ethereum, tx);
+    } catch (error: unknown) {
+      console.error(error);
+    }
+
+    clearFormData();
+    await updateBalanceAsync();
   }
 
   function onFormChange(

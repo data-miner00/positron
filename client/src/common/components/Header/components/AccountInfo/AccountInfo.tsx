@@ -12,24 +12,13 @@ import {
 function AccountInfo() {
   const { ethereum } = window;
 
-  const { currentAccount, setCurrentAccount } = useContext(AppContext);
+  const { currentAccount, setCurrentAccount, balance } = useContext(AppContext);
 
   async function connectWallet() {
     const accounts: Array<string> = await getWalletAccountsAsync(ethereum);
 
     setCurrentAccount(accounts[0]);
   }
-
-  const [balance, setBalance] = useState<string>("0.00");
-
-  async function updateBalanceAsync() {
-    const bal = await getAccountBalanceAsync(ethereum, currentAccount);
-    setBalance(bal);
-  }
-
-  useEffect(() => {
-    updateBalanceAsync();
-  }, [currentAccount]);
 
   const ConnectWalletButton = () => (
     <Button onClick={connectWallet} primary label="Connect Metamask" />
