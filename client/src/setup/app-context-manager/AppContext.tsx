@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ChildProps } from "./models";
-import { getAccountBalanceAsync } from "./utils";
+import { getAccountBalanceAsync, getWalletAccountsAsync } from "./utils";
 
 const { ethereum } = window;
 
@@ -14,6 +14,12 @@ export function AppContextProvider({ children }: ChildProps) {
     const bal = await getAccountBalanceAsync(ethereum, currentAccount);
     setBalance(bal);
   }
+
+  useEffect(() => {
+    getWalletAccountsAsync(ethereum)
+      .then((accounts) => setCurrentAccount(accounts[0]))
+      .catch(() => console.log("No account is connected."));
+  }, []);
 
   useEffect(() => {
     updateBalanceAsync();
