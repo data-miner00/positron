@@ -1,0 +1,27 @@
+.transactions-page {
+  min-height: 100vh;
+}
+
+.transactions-page .intro {
+  text-align: center;
+  padding: 150px 0;
+  margin: 0 auto;
+  background: linear-gradient(to right, #8360c3, #2ebf91);
+}
+
+.transactions-page .intro h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.transactions-page .intro p {
+  margin: 0;
+}
+
+@media screen and (min-width: var(--screen-xl)) {
+  .transactions-page .intro {
+    max-width: var(--screen-xl);
+  }
+}
