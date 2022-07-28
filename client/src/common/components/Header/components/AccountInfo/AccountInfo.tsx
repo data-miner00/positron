@@ -4,10 +4,7 @@ import Button from "common/components/Button";
 import { shortenAddress } from "utils/shortenAddress";
 import "./AccountInfo.css";
 import { AppContext } from "setup/app-context-manager/AppContext";
-import {
-  getAccountBalanceAsync,
-  getWalletAccountsAsync,
-} from "setup/app-context-manager/utils";
+import { getWalletAccountsAsync } from "setup/app-context-manager/utils";
 
 function AccountInfo() {
   const { ethereum } = window;
