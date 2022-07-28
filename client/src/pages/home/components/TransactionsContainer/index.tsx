@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
 import { Transaction } from "setup/app-context-manager/models";
-import { getAllTransactionsAsync } from "setup/app-context-manager/utils";
 import { formatTimeDiff } from "../../utils";
 import TransactionCard from "../TransactionCard";
 
 import "./styles.css";
 
-const { ethereum } = window;
+type TransactionsContainerProps = {
+  transactions: Array<Transaction>;
+  limit?: number;
+};
 
-function TransactionsContainer() {
-  const [transactions, setTransactions] = useState<Array<Transaction>>();
-
-  useEffect(() => {
-    getAllTransactionsAsync(ethereum)
-      .then((txs) => txs && setTransactions(txs))
-      .catch(console.error);
-  }, []);
-
+function TransactionsContainer({
+  transactions,
+  limit = 0,
+}: TransactionsContainerProps) {
   /* v Temporary codes */
   if (!transactions) {
     return (
@@ -35,6 +31,24 @@ function TransactionsContainer() {
     );
   }
   /* ^ Temporary codes */
+
+  if (limit > 0) {
+    return (
+      <div className="transactions-container">
+        {transactions?.slice(0, limit - 1).map((tx, index) => (
+          <TransactionCard
+            key={index}
+            addressTo={tx.addressTo}
+            addressFrom={tx.addressFrom}
+            timestamp={formatTimeDiff(tx.timestamp)}
+            message={tx.message}
+            keyword={tx.keyword}
+            amount={tx.amount}
+          />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="transactions-container">

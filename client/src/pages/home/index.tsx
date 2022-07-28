@@ -10,8 +10,12 @@ import "./styles.css";
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";
 import { inspirings, stats } from "./constants";
+import { useContext } from "react";
+import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
 
 function HomePage() {
+  const { transactions } = useContext(TransactionsContext);
+
   return (
     <div className="landing-page">
       <section className="landing">
@@ -63,7 +67,7 @@ function HomePage() {
           Take a look at the transactions people made recently via{" "}
           <span>Positron+</span>
         </p>
-        <TransactionsContainer />
+        <TransactionsContainer transactions={transactions} limit={6} />
       </section>
     </div>
   );
