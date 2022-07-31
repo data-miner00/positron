@@ -25,7 +25,7 @@ function Header() {
               <li>
                 <a
                   className="link"
-                  href="https://etherscan.org/"
+                  href="https://etherscan.io/"
                   target="_blank"
                   rel="noreferrer"
                 >
