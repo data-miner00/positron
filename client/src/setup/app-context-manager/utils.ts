@@ -39,7 +39,7 @@ export async function getAllTransactionsAsync(
     amount: String(parseInt(tx.amount._hex) / 10 ** 18),
   }));
 
-  return transactions;
+  return transactions.reverse();
 }
 
 export async function getWalletAccountsAsync(

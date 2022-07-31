@@ -47,7 +47,7 @@ function TransferForm() {
       console.error(error);
     }
 
-    setTransactions((prevTxs: Array<Transaction>) => [...prevTxs, tx]);
+    setTransactions((prevTxs: Array<Transaction>) => [tx, ...prevTxs]);
     clearFormData();
     await updateBalanceAsync();
   }
