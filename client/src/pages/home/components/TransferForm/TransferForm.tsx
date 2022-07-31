@@ -7,11 +7,13 @@ import Button from "common/components/Button";
 import Input from "common/components/Input";
 
 import "./TransferForm.css";
+import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
 
 const { ethereum } = window;
 
 function TransferForm() {
   const { currentAccount, updateBalanceAsync } = useContext(AppContext);
+  const { setTransactions } = useContext(TransactionsContext);
 
   const [txFormData, setTxFormData] = useState<TransactionFormAttributes>({
     addressTo: "",
@@ -21,8 +23,6 @@ function TransferForm() {
   });
 
   async function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
-    console.log(ethereum, txFormData);
-
     const { addressTo, amountInEth, keyword, message } = txFormData;
     event.preventDefault();
 
@@ -47,6 +47,7 @@ function TransferForm() {
       console.error(error);
     }
 
+    setTransactions((prevTxs: Array<Transaction>) => [...prevTxs, tx]);
     clearFormData();
     await updateBalanceAsync();
   }
