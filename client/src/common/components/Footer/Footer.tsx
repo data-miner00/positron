@@ -4,11 +4,8 @@ function Footer() {
   return (
     <footer>
       <div className="l">
-        <p>Made with ❤️ by Shaun.</p>
+        <p>Made with ❤️ by Shaun in Giällewee, L-9749 Clervaux</p>
       </div>
-      <ul className="links">
-        <li></li>
-      </ul>
     </footer>
   );
 }
