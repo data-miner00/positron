@@ -35,7 +35,7 @@ function TransactionsContainer({
   if (limit > 0) {
     return (
       <div className="transactions-container">
-        {transactions?.slice(0, limit - 1).map((tx, index) => (
+        {transactions?.slice(0, limit).map((tx, index) => (
           <TransactionCard
             key={index}
             addressTo={tx.addressTo}
