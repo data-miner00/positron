@@ -5,8 +5,12 @@ import "./StatsContainer.css";
 function StatsContainer({ stats }: StatsContainerProps) {
   return (
     <div className="stats-container">
-      {stats.map((stat) => (
-        <StatsCard figure={stat.figure} description={stat.description} />
+      {stats.map((stat, index) => (
+        <StatsCard
+          key={index}
+          figure={stat.figure}
+          description={stat.description}
+        />
       ))}
     </div>
   );
