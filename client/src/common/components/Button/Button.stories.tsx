@@ -24,3 +24,15 @@ Primary.args = {
   primary: true,
   label,
 };
+
+export const Large: ButtonComponentStory = Template.bind({});
+Large.args = {
+  size: "large",
+  label,
+};
+
+export const Small: ButtonComponentStory = Template.bind({});
+Small.args = {
+  size: "small",
+  label,
+};
