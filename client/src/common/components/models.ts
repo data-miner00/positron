@@ -1,7 +1,13 @@
 import React from "react";
 
 export type ImgButtonProps = {
+  /**
+   * The image of the button
+   */
   img: React.ReactNode;
+  /**
+   * Optional click handler
+   */
   onClick?: () => void;
 };
 
@@ -56,4 +62,15 @@ export type InputProps = {
     event: React.ChangeEvent<HTMLInputElement>,
     name: string
   ) => void;
+};
+
+export type SnackbarProps = {
+  /**
+   * The message to be displayed
+   */
+  message: string;
+  /**
+   * The type of snackbar background color
+   */
+  type: "info" | "success" | "warning" | "error";
 };

@@ -1,0 +1,32 @@
+.snackbar {
+  padding: 0 15px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  width: fit-content;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.snackbar .icon {
+  margin-right: 10px;
+  font-size: 1rem;
+  padding-top: 2px;
+}
+
+.snackbar.info {
+  background-color: blue;
+}
+
+.snackbar.success {
+  background-color: green;
+}
+
+.snackbar.warning {
+  background-color: yellow;
+}
+
+.snackbar.error {
+  background-color: red;
+}
