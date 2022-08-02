@@ -14,19 +14,22 @@ function TransactionsContainer({
   limit = 0,
 }: TransactionsContainerProps) {
   /* v Temporary codes */
-  if (!transactions) {
+  if (transactions.length < 1) {
     return (
       <div className="transactions-container">
-        {Array(4).map(() => (
-          <TransactionCard
-            addressTo="0x4392805C28f47d334856D33d62F8ec539933478D"
-            addressFrom="0x4392805C28f47d334856D33d62F8ec539933478D"
-            timestamp={formatTimeDiff(new Date(2022, 4, 21))}
-            message="hello world"
-            keyword="hello"
-            amount="0.1"
-          />
-        ))}
+        {Array(6)
+          .fill(undefined)
+          .map((_, index) => (
+            <TransactionCard
+              key={index}
+              addressTo="0x4392805C28f47d334856D33d62F8ec539933478D"
+              addressFrom="0x4392805C28f47d334856D33d62F8ec539933478D"
+              timestamp={formatTimeDiff(new Date(2022, 4, 21))}
+              message="hello world"
+              keyword="hello"
+              amount="0.1"
+            />
+          ))}
       </div>
     );
   }
