@@ -16,17 +16,17 @@
 }
 
 .snackbar.info {
-  background-color: blue;
+  background-color: #006db2;
 }
 
 .snackbar.success {
-  background-color: green;
+  background-color: #32cd32;
 }
 
 .snackbar.warning {
-  background-color: yellow;
+  background-color: #ffd400;
 }
 
 .snackbar.error {
-  background-color: red;
+  background-color: #ff2e2e;
 }
