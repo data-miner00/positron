@@ -74,3 +74,30 @@ export type SnackbarProps = {
    */
   type: "info" | "success" | "warning" | "error";
 };
+
+export type TransactionCardProps = {
+  /**
+   * The address of receipient
+   */
+  addressTo: string;
+  /**
+   * The address of sender
+   */
+  addressFrom: string;
+  /**
+   * Time where transaction occurred
+   */
+  timestamp: string;
+  /**
+   * The message attached for the transaction
+   */
+  message: string;
+  /**
+   * The keyword attached for the transaction
+   */
+  keyword: string;
+  /**
+   * The amount of Ethers sent
+   */
+  amount: string;
+};
