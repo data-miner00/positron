@@ -32,6 +32,12 @@ All the transactions can be viewed in the `/transactions` page.
 
 ### Smart Contracts
 
+The framework for managing smart contract used is [Truffle](https://trufflesuite.com/). To install Truffle
+
+```
+npm i -g truffle
+```
+
 Install Node dependencies
 
 ```
@@ -51,6 +57,8 @@ Deploy the compiled contracts to local Ethereum network
 ```
 pnpm migrate
 ```
+
+> Before migration, create a file called `private-key.crt` and paste one of the account's private key and all the deployments will be performed under that account.
 
 Spinup a local interactive Ethereum blockchain
 
