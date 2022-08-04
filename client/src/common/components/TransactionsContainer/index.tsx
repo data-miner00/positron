@@ -1,6 +1,6 @@
 import { Transaction } from "setup/app-context-manager/models";
-import { formatTimeDiff } from "../../utils";
-import TransactionCard from "../TransactionCard";
+import { formatTimeDiff } from "../../../pages/home/utils";
+import TransactionCard from "./components/TransactionCard";
 
 import "./styles.css";
 

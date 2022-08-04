@@ -2,7 +2,7 @@ import { useId } from "react";
 import { FaEthereum } from "react-icons/fa";
 import useGiphy from "common/hooks/useGiphy";
 import { shortenAddress } from "utils/shortenAddress";
-import { TransactionCardProps } from "../../models";
+import { TransactionCardProps } from "../../../../../pages/home/models";
 import "./styles.css";
 
 function TransactionCard({

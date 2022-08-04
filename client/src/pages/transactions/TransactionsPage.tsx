@@ -1,4 +1,4 @@
-import TransactionsContainer from "pages/home/components/TransactionsContainer";
+import TransactionsContainer from "common/components/TransactionsContainer";
 import { useContext } from "react";
 import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
 import "./TransactionsPage.css";
