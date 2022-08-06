@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Button from "common/components/Button";
 import TransferForm from "./components/TransferForm";
@@ -10,14 +10,24 @@ import "./styles.css";
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";
 import { inspirings, stats } from "./constants";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
+import Snackbar from "common/components/Snackbar";
 
 function HomePage() {
   const { transactions } = useContext(TransactionsContext);
+  const [snackbarMessage, setSnackbarMessage] = useState<string>("");
+  const [snackbarType, setSnackbarType] =
+    useState<"info" | "success" | "warning" | "error">("info");
+  const [showSnackbar, setShowSnackbar] = useState<boolean>();
 
   return (
     <div className="landing-page">
+      <AnimatePresence>
+        {showSnackbar && (
+          <Snackbar message={snackbarMessage} type={snackbarType} />
+        )}
+      </AnimatePresence>
       <section className="landing">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -45,7 +55,22 @@ function HomePage() {
           />
         </motion.div>
 
-        <TransferForm />
+        <TransferForm
+          onSuccess={() => {
+            setSnackbarMessage("Transaction has been completed successfully");
+            setSnackbarType("success");
+            setShowSnackbar(true);
+            setTimeout(() => setShowSnackbar(false), 2000);
+          }}
+          onFailure={() => {
+            setSnackbarMessage(
+              "Transaction could not be completed. Try again later"
+            );
+            setSnackbarType("error");
+            setShowSnackbar(true);
+            setTimeout(() => setShowSnackbar(false), 2000);
+          }}
+        />
       </section>
 
       <section className="inspired">

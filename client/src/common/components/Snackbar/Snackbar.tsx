@@ -18,7 +18,12 @@ const Icons = {
 
 function Snackbar({ message, type }: SnackbarProps) {
   return (
-    <motion.div className={`snackbar ${type}`}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={`snackbar ${type}`}
+    >
       <div className="icon">{Icons[type]()}</div>
       <div className="message">
         <p>{message}</p>

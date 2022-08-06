@@ -11,7 +11,12 @@ import { TransactionsContext } from "setup/app-context-manager/TransactionsConte
 
 const { ethereum } = window;
 
-function TransferForm() {
+type TransferFormProps = {
+  onSuccess?: () => void;
+  onFailure?: () => void;
+};
+
+function TransferForm({ onSuccess, onFailure }: TransferFormProps) {
   const { currentAccount, updateBalanceAsync } = useContext(AppContext);
   const { setTransactions } = useContext(TransactionsContext);
 
@@ -43,8 +48,10 @@ function TransferForm() {
 
     try {
       await sendTransactionAsync(ethereum, tx);
+      onSuccess && onSuccess();
     } catch (error: unknown) {
       console.error(error);
+      onFailure && onFailure();
     }
 
     setTransactions((prevTxs: Array<Transaction>) => [tx, ...prevTxs]);
