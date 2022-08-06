@@ -15,6 +15,12 @@ export function AppContextProvider({ children }: ChildProps) {
     setBalance(bal);
   }
 
+  async function connectWalletAsync() {
+    const accounts: Array<string> = await getWalletAccountsAsync(ethereum);
+    setCurrentAccount(accounts[0]);
+  }
+
+  // Metamask not connected: err.code === 4001
   useEffect(() => {
     getWalletAccountsAsync(ethereum)
       .then((accounts) => setCurrentAccount(accounts[0]))
@@ -32,6 +38,7 @@ export function AppContextProvider({ children }: ChildProps) {
         setCurrentAccount,
         balance,
         updateBalanceAsync,
+        connectWalletAsync,
       }}
     >
       {children}
