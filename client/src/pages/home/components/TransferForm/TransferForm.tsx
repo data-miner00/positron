@@ -20,11 +20,15 @@ function TransferForm({ onSuccess, onFailure }: TransferFormProps) {
   const { currentAccount, updateBalanceAsync } = useContext(AppContext);
   const { setTransactions } = useContext(TransactionsContext);
 
-  const [txFormData, setTxFormData] = useState<TransactionFormAttributes>({
+  const initialState: TransactionFormAttributes = {
     addressTo: "",
     amountInEth: "",
     keyword: "",
     message: "",
+  };
+
+  const [txFormData, setTxFormData] = useState<TransactionFormAttributes>({
+    ...initialState,
   });
 
   async function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -55,7 +59,8 @@ function TransferForm({ onSuccess, onFailure }: TransferFormProps) {
     }
 
     setTransactions((prevTxs: Array<Transaction>) => [tx, ...prevTxs]);
-    clearFormData();
+    clearFormUI();
+    setTxFormData({ ...initialState });
     await updateBalanceAsync();
   }
 
@@ -69,7 +74,7 @@ function TransferForm({ onSuccess, onFailure }: TransferFormProps) {
     }));
   }
 
-  function clearFormData() {
+  function clearFormUI() {
     formRef?.current?.reset();
   }
 
