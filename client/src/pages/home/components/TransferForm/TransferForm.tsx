@@ -31,11 +31,12 @@ function TransferForm({ onSuccess, onFailure }: TransferFormProps) {
     ...initialState,
   });
 
-  async function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onFormSubmitAsync(event: React.FormEvent<HTMLFormElement>) {
     const { addressTo, amountInEth, keyword, message } = txFormData;
     event.preventDefault();
 
     if (!addressTo || !amountInEth || !keyword || !message) {
+      onFailure && onFailure();
       return;
     }
 
@@ -81,7 +82,7 @@ function TransferForm({ onSuccess, onFailure }: TransferFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <form ref={formRef} onSubmit={onFormSubmit} className="transfer-form">
+    <form ref={formRef} onSubmit={onFormSubmitAsync} className="transfer-form">
       <h1>Who do you want to send today?</h1>
       <Input
         placeholder="Address To"
