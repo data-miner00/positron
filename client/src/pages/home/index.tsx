@@ -1,21 +1,22 @@
+import { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Button from "common/components/Button";
+import TransactionsContainer from "common/components/TransactionsContainer";
+import Snackbar from "common/components/Snackbar";
+import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
+
 import TransferForm from "./components/TransferForm";
-
-import TransactionsContainer from "../../common/components/TransactionsContainer";
-
-import "./styles.css";
-
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";
 import { inspirings, stats } from "./constants";
-import { useContext, useState } from "react";
-import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
-import Snackbar from "common/components/Snackbar";
+
+import "./styles.css";
+import { AppContext } from "setup/app-context-manager/AppContext";
 
 function HomePage() {
   const { transactions } = useContext(TransactionsContext);
+  const { connectWalletAsync } = useContext(AppContext);
   const [snackbarMessage, setSnackbarMessage] = useState<string>("");
   const [snackbarType, setSnackbarType] =
     useState<"info" | "success" | "warning" | "error">("info");
@@ -51,7 +52,7 @@ function HomePage() {
             label="Connect Metamask"
             primary
             size="large"
-            onClick={console.log}
+            onClick={connectWalletAsync}
           />
         </motion.div>
 
