@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { FaEthereum } from "react-icons/fa";
 import useGiphy from "common/hooks/useGiphy";
-import { shortenAddress } from "utils/shortenAddress";
+import { shortenAddress } from "common/utils/shortenAddress";
 import { TransactionCardProps } from "common/components/models";
 import "./TransactionCard.css";
 
