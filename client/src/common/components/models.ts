@@ -36,6 +36,10 @@ export type ButtonProps = {
    * Type of button
    */
   type?: "button" | "submit" | "reset";
+  /**
+   * Optional test Id for testing
+   */
+  "data-testid"?: string;
 };
 
 export type InputProps = {

@@ -8,6 +8,7 @@ function Button({
   label,
   type = "button",
   onClick,
+  "data-testid": testId,
 }: ButtonProps) {
   const className = ["button", primary ? "primary" : "", size];
 
@@ -17,6 +18,7 @@ function Button({
       className={className.join(" ")}
       type={type}
       onClick={onClick}
+      data-testid={testId}
     >
       {label}
     </button>
