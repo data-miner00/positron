@@ -6,6 +6,14 @@ import TransactionCard from "./TransactionCard";
 export default {
   title: "Transaction Card",
   component: TransactionCard,
+  argTypes: {
+    addressFrom: { type: "string" },
+    addressTo: { type: "string" },
+    timestamp: { type: "string" },
+    message: { type: "string" },
+    keyword: { type: "string" },
+    amount: { type: "number" },
+  },
 } as ComponentMeta<typeof TransactionCard>;
 
 const Template = (args: TransactionCardProps) => <TransactionCard {...args} />;
