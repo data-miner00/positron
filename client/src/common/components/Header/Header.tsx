@@ -1,12 +1,25 @@
+import { useLayoutEffect, useState } from "react";
 import { RiMoonClearFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
 import AccountInfo from "./components/AccountInfo";
 import ImgButton from "common/components/ImgButton";
-import { Link } from "react-router-dom";
+
 import "./Header.css";
 
 function Header() {
+  const [isPageScrolled, setIsPageScrolled] = useState<boolean>(false);
+
+  useLayoutEffect(() => {
+    if (typeof window !== undefined) {
+      window.addEventListener("scroll", (_: Event) => {
+        setIsPageScrolled(window.scrollY > 50);
+      });
+    }
+  }, []);
+
   return (
-    <div className="header-wrapper">
+    <div className={`header-wrapper ${isPageScrolled ? "scrolled" : ""}`}>
       <header className="header">
         <div className="logo">
           <Link to="/">
