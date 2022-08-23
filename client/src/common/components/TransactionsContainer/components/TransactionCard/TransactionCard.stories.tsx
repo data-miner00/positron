@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { TransactionCardProps } from "common/components/models";
 
+import { TransactionCardProps } from "common/components/models";
 import TransactionCard from "./TransactionCard";
 
 export default {

@@ -1,13 +1,14 @@
-import { TransactionFormAttributes } from "pages/home/models";
 import React, { useContext, useRef, useState } from "react";
+
+import { TransactionFormAttributes } from "pages/home/models";
 import { AppContext } from "setup/app-context-manager/AppContext";
 import { Transaction } from "setup/app-context-manager/models";
 import { sendTransactionAsync } from "setup/app-context-manager/utils";
+import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
 import Button from "common/components/Button";
 import Input from "common/components/Input";
 
 import "./TransferForm.css";
-import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
 
 const { ethereum } = window;
 

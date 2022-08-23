@@ -1,6 +1,7 @@
 import { ComponentMeta } from "@storybook/react";
-import { AppContext } from "setup/app-context-manager/AppContext";
 import { withReactContext } from "storybook-react-context";
+
+import { AppContext } from "setup/app-context-manager/AppContext";
 import Header from "./Header";
 
 export default {

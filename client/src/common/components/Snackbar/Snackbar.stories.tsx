@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+
 import { SnackbarProps } from "../models";
 import Snackbar from "./Snackbar";
 

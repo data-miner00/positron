@@ -1,6 +1,8 @@
-import TransactionsContainer from "common/components/TransactionsContainer";
 import { useContext } from "react";
+
+import TransactionsContainer from "common/components/TransactionsContainer";
 import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
+
 import "./TransactionsPage.css";
 
 function TransactionsPage() {

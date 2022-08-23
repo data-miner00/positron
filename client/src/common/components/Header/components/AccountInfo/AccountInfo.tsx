@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { FaEthereum } from "react-icons/fa";
+
 import Button from "common/components/Button";
 import { shortenAddress } from "common/utils/shortenAddress";
-import "./AccountInfo.css";
 import { AppContext } from "setup/app-context-manager/AppContext";
+
+import "./AccountInfo.css";
 
 function AccountInfo() {
   const { currentAccount, connectWalletAsync, balance } =

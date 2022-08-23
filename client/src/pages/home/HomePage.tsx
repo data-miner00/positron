@@ -5,7 +5,6 @@ import Button from "common/components/Button";
 import TransactionsContainer from "common/components/TransactionsContainer";
 import Snackbar from "common/components/Snackbar";
 import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
-
 import TransferForm from "./components/TransferForm";
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";

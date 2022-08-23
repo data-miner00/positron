@@ -1,7 +1,8 @@
 import { ComponentMeta } from "@storybook/react";
+import { withReactContext } from "storybook-react-context";
+
 import { AppContext } from "setup/app-context-manager/AppContext";
 import { TransactionsContext } from "setup/app-context-manager/TransactionsContext";
-import { withReactContext } from "storybook-react-context";
 import TransferForm from "./TransferForm";
 
 export default {

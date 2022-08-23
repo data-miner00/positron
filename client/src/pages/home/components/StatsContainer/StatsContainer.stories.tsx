@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { StatsContainerProps } from "pages/home/models";
 
+import { StatsContainerProps } from "pages/home/models";
 import StatsContainer from "./StatsContainer";
 
 export default {

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { StatsAttributes } from "pages/home/models";
 
+import { StatsAttributes } from "pages/home/models";
 import StatsCard from "./StatsCard";
 
 export default {

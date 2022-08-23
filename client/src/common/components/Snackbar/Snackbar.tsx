@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { SnackbarProps } from "../models";
 import {
   AiFillInfoCircle,
   AiFillCheckCircle,
   AiFillCloseCircle,
   AiFillExclamationCircle,
 } from "react-icons/ai";
+
+import { SnackbarProps } from "../models";
 
 import "./Snackbar.css";
 

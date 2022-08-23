@@ -1,4 +1,5 @@
 import { InspiredContainerProps } from "../../models";
+
 import "./InspiredContainer.css";
 
 function InspiredContainer({ inspirings }: InspiredContainerProps) {

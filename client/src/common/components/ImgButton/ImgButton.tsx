@@ -1,4 +1,5 @@
 import { ImgButtonProps } from "../models";
+
 import "./ImgButton.css";
 
 function ImgButton({ img, onClick }: ImgButtonProps) {
