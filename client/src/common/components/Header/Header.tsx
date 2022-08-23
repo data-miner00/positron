@@ -11,7 +11,7 @@ function Header() {
   const [isPageScrolled, setIsPageScrolled] = useState<boolean>(false);
 
   useLayoutEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== "undefined") {
       window.addEventListener("scroll", (_: Event) => {
         setIsPageScrolled(window.scrollY > 50);
       });
