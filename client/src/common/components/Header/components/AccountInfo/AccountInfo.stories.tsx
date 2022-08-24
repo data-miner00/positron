@@ -12,6 +12,7 @@ export default {
       Context: AppContext,
       initialState: {
         currentAccount: "0x430EF9263E06DAE63c84292C3409D61c598E9682",
+        balance: 999,
       },
     }),
   ],
