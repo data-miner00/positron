@@ -17,13 +17,14 @@ const Icons = {
   error: () => <AiFillCloseCircle />,
 };
 
-function Snackbar({ message, type }: SnackbarProps) {
+function Snackbar({ message, type, "data-testid": testid }: SnackbarProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className={`snackbar ${type}`}
+      data-testid={testid}
     >
       <div className="icon">{Icons[type]()}</div>
       <div className="message">

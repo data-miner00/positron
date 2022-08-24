@@ -81,6 +81,10 @@ export type SnackbarProps = {
    * The type of snackbar background color
    */
   type: "info" | "success" | "warning" | "error";
+  /**
+   * Optional test Id for testing
+   */
+  "data-testid"?: string;
 };
 
 export type TransactionCardProps = {
