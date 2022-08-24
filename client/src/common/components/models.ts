@@ -9,6 +9,10 @@ export type ImgButtonProps = {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Optional test Id for testing
+   */
+  "data-testid"?: string;
 };
 
 export type ButtonProps = {
