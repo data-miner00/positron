@@ -9,9 +9,9 @@ import TransferForm from "./components/TransferForm";
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";
 import { inspirings, stats } from "./constants";
+import { AppContext } from "setup/app-context-manager/AppContext";
 
 import "./HomePage.css";
-import { AppContext } from "setup/app-context-manager/AppContext";
 
 function HomePage() {
   const { transactions } = useContext(TransactionsContext);
