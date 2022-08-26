@@ -8,7 +8,6 @@ type ButtonComponentStory = ComponentStory<typeof Button>;
 export default {
   title: "Button",
   component: Button,
-  // argTypes: { handleClick: { action: "handlClick" } },
 } as ComponentMeta<typeof Button>;
 
 const label = "Click me";
