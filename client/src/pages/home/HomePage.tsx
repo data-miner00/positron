@@ -30,9 +30,9 @@ function HomePage() {
       </AnimatePresence>
       <section className="landing">
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: "10px" }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="introduction"
         >
           <p className="accented">Now live on testnet!</p>
@@ -55,22 +55,28 @@ function HomePage() {
           />
         </motion.div>
 
-        <TransferForm
-          onSuccess={() => {
-            setSnackbarMessage("Transaction has been completed successfully");
-            setSnackbarType("success");
-            setShowSnackbar(true);
-            setTimeout(() => setShowSnackbar(false), 2000);
-          }}
-          onFailure={() => {
-            setSnackbarMessage(
-              "Transaction could not be completed. Try again later"
-            );
-            setSnackbarType("error");
-            setShowSnackbar(true);
-            setTimeout(() => setShowSnackbar(false), 2000);
-          }}
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 1 }}
+        >
+          <TransferForm
+            onSuccess={() => {
+              setSnackbarMessage("Transaction has been completed successfully");
+              setSnackbarType("success");
+              setShowSnackbar(true);
+              setTimeout(() => setShowSnackbar(false), 2000);
+            }}
+            onFailure={() => {
+              setSnackbarMessage(
+                "Transaction could not be completed. Try again later"
+              );
+              setSnackbarType("error");
+              setShowSnackbar(true);
+              setTimeout(() => setShowSnackbar(false), 2000);
+            }}
+          />
+        </motion.div>
       </section>
 
       <section className="inspired">
