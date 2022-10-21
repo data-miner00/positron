@@ -33,7 +33,7 @@
 .header .right {
   display: flex;
   align-items: center;
-  color: #bbb;
+  color: #eee;
 }
 
 .nav ul {
@@ -73,7 +73,7 @@
   margin: 0 30px;
   width: 2px;
   height: 25px;
-  background: #444;
+  background: #eee;
 }
 
 @media screen and (min-width: var(--screen-2xl)) {

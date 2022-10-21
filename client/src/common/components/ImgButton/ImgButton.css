@@ -4,10 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #444;
+  border: 2px solid transparent;
   border-radius: 999px;
   background: none;
-  color: white;
+  color: #eee;
   transition: border-color 0.4s ease;
 }
 
@@ -18,5 +18,5 @@
 }
 
 .img-button:hover {
-  border-color: #666;
+  border-color: #eee;
 }
