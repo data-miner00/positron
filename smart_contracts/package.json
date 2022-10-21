@@ -6,7 +6,7 @@
   "author": "data-miner00",
   "license": "MIT",
   "scripts": {
-    "lint": "solhint 'contracts/**/*.sol'",
+    "lint": "solhint contracts/Transaction.sol",
     "build": "truffle compile",
     "migrate": "truffle migrate",
     "dev": "truffle develop",
