@@ -23,9 +23,8 @@ function TransactionsContainer({
           {Array(6)
             .fill(undefined)
             .map((_, index) => (
-              <li>
+              <li key={index}>
                 <TransactionCard
-                  key={index}
                   addressTo="0x4392805C28f47d334856D33d62F8ec539933478D"
                   addressFrom="0x4392805C28f47d334856D33d62F8ec539933478D"
                   timestamp={formatTimeDiff(new Date(2022, 4, 21))}
@@ -46,9 +45,8 @@ function TransactionsContainer({
       <div className="transactions-container">
         <ul>
           {transactions?.slice(0, limit).map((tx, index) => (
-            <li>
+            <li key={index}>
               <TransactionCard
-                key={index}
                 addressTo={tx.addressTo}
                 addressFrom={tx.addressFrom}
                 timestamp={formatTimeDiff(tx.timestamp)}
@@ -68,12 +66,12 @@ function TransactionsContainer({
       <ul>
         {transactions?.map((tx, index) => (
           <motion.li
+            key={index}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2, delay: (index + 1) * 0.2 }}
           >
             <TransactionCard
-              key={index}
               addressTo={tx.addressTo}
               addressFrom={tx.addressFrom}
               timestamp={formatTimeDiff(tx.timestamp)}
