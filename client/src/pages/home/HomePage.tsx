@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Button from "common/components/Button";
@@ -8,18 +8,44 @@ import { TransactionsContext } from "setup/app-context-manager/TransactionsConte
 import TransferForm from "./components/TransferForm";
 import InspiredContainer from "./components/InspiredContainer/InspiredContainer";
 import StatsContainer from "./components/StatsContainer";
-import { inspirings, stats } from "./constants";
+import { inspirings } from "./constants";
 import { AppContext } from "setup/app-context-manager/AppContext";
+import { StatsAttributes } from "./models";
 
 import "./HomePage.css";
 
 function HomePage() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions, txCount, totalVolume } =
+    useContext(TransactionsContext);
   const { connectWalletAsync } = useContext(AppContext);
   const [snackbarMessage, setSnackbarMessage] = useState<string>("");
   const [snackbarType, setSnackbarType] =
     useState<"info" | "success" | "warning" | "error">("info");
   const [showSnackbar, setShowSnackbar] = useState<boolean>();
+  const [stats, setStats] = useState<Array<StatsAttributes>>([]);
+
+  const today = new Date();
+  const dateElement = today.toUTCString().split(" ");
+  const dateString = `${Number(dateElement[1])} ${dateElement[2]} ${
+    dateElement[3]
+  }`;
+
+  useEffect(() => {
+    setStats([
+      {
+        figure: `${txCount} Txns`,
+        description: `Transaction count as of ${dateString}`,
+      },
+      {
+        figure: `${totalVolume} ETH`,
+        description: `Total ETH volume as of ${dateString}`,
+      },
+      {
+        figure: "$5k",
+        description: `Volume in USD as of ${dateString}`,
+      },
+    ]);
+  }, [txCount, totalVolume]);
 
   return (
     <div className="landing-page">

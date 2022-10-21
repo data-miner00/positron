@@ -26,10 +26,7 @@ export function getWeb3ProviderContract(ethereum: any): ethers.Contract {
   return transactionContract;
 }
 
-export async function getAllTransactionsAsync(
-  ethereum: any
-): Promise<Array<Transaction> | void> {
-  if (!ethereum) return console.log("No ethereum object");
+export async function getAllTransactionsAsync(): Promise<Array<Transaction> | void> {
   const url = process.env.REACT_APP_LOCAL_ETHEREUM_URL as string;
 
   const transactionContract = getJsonRpcProviderContract(url);
@@ -111,4 +108,28 @@ export async function getAccountBalanceAsync(
   const balanceInEth = Number(ethers.utils.formatEther(balance)).toFixed(2);
 
   return balanceInEth;
+}
+
+export async function getTotalTransactionCount(): Promise<number> {
+  const url = process.env.REACT_APP_LOCAL_ETHEREUM_URL as string;
+  const transactionContract = getJsonRpcProviderContract(url);
+  const txCount = await transactionContract.getTransactionCount();
+
+  return txCount;
+}
+
+export async function getTotalVolume(): Promise<string> {
+  const url = process.env.REACT_APP_LOCAL_ETHEREUM_URL as string;
+  const transactionContract = getJsonRpcProviderContract(url);
+  const totalVolume = await transactionContract.getTotalVolume();
+  const volumeInETH = Number(ethers.utils.formatEther(totalVolume)).toFixed(2);
+
+  return volumeInETH;
+}
+
+export async function getRank(ethereum: any): Promise<string> {
+  const transactionContract = getWeb3ProviderContract(ethereum);
+  const rank = await transactionContract.getRank();
+
+  return rank;
 }
