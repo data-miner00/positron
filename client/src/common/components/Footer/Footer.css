@@ -1,8 +1,10 @@
-footer {
-  background-color: #1e1e1e;
-  display: flex;
-  align-items: center;
-  padding: 10px 100px;
+.fwrapper {
   border-top: 1px solid #555;
-  justify-content: space-between;
+  background-color: #1e1e1e;
+}
+
+footer {
+  padding: 10px 10%;
+  max-width: var(--screen-xl);
+  margin: 0 auto;
 }
