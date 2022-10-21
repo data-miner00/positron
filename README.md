@@ -2,6 +2,23 @@
 
 Positron+ is a simple dapps that allows user to send ethers and attach a message and keyword along with the transaction.
 
+## Tech Stacks
+
+The list of technologies used for this project.
+
+**Front-end**
+
+- [React (cra)](https://reactjs.org/)
+- [Storybook](https://storybook.js.org/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [TypeScript](https://www.typescriptlang.org)
+- [Ethers.js](https://docs.ethers.io/v5/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+**Smart Contracts**
+
+- [Truffle](https://trufflesuite.com/)
+
 ## Demo
 
 Landing page of the Dapp.
@@ -125,7 +142,7 @@ Start Storybook locally
 ```
 yarn storybook
 
-// or shortform
+// or short form
 yarn sb
 ```
 
@@ -139,9 +156,7 @@ yarn build-storybook
 
 The list of milestones that is planned to fulfill following the initial release.
 
-- [ ] Use [Web3.js]() instead of [Ethers.js]()
 - [ ] Add more chain such as Algorand.
-- [ ] Add light mode
 - [ ] Customize Storybook
 - [ ] Use Framer motion to animate elements
 - [ ] Personalized profile avatar
@@ -155,3 +170,9 @@ The list of milestones that is planned to fulfill following the initial release.
 - [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
 - [Pitfalls of Overusing React Context](https://blog.logrocket.com/pitfalls-of-overusing-react-context/)
+
+## Resources
+
+- [Writing Tests in JavaScript](https://trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript/)
+
+- [Chai Assert API](https://www.chaijs.com/api/assert/)
