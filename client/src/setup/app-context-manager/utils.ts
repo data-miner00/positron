@@ -2,13 +2,19 @@ import { ethers } from "ethers";
 import { contractABI, contractAddress } from "common/constants";
 import { Transaction } from "./models";
 
-export function getEthereumObject() {
-  const { ethereum } = window;
+export function getJsonRpcProviderContract(url: string): ethers.Contract {
+  const provider = new ethers.providers.JsonRpcProvider(url);
+  const signer = provider.getSigner();
+  const transactionContract = new ethers.Contract(
+    contractAddress,
+    contractABI,
+    signer
+  );
 
-  return ethereum;
+  return transactionContract;
 }
 
-export function getContract(ethereum: any): ethers.Contract {
+export function getWeb3ProviderContract(ethereum: any): ethers.Contract {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const transactionContract = new ethers.Contract(
@@ -24,8 +30,9 @@ export async function getAllTransactionsAsync(
   ethereum: any
 ): Promise<Array<Transaction> | void> {
   if (!ethereum) return console.log("No ethereum object");
+  const url = process.env.REACT_APP_LOCAL_ETHEREUM_URL as string;
 
-  const transactionContract = getContract(ethereum);
+  const transactionContract = getJsonRpcProviderContract(url);
 
   const rawTransactions: Array<any> =
     await transactionContract.getAllTransactions();
@@ -80,7 +87,7 @@ async function writeToBlockchainAsync(
   ethereum: any,
   { addressTo, amount, message, keyword }: Transaction
 ): Promise<void> {
-  const transactionContract = getContract(ethereum);
+  const transactionContract = getWeb3ProviderContract(ethereum);
   const convertedAmount = ethers.utils.parseEther(amount);
 
   const txHash = await transactionContract.commit(
