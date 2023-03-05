@@ -50,9 +50,9 @@ module.exports = {
     // options below to some value.
     //
     development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 7545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
+      host: "127.0.0.1", // Localhost (default: none)
+      port: 7545, // Standard Ethereum port (default: none)
+      network_id: "*", // Any network (default: none)
     },
     // Another network with more advanced options...
     // advanced: {
@@ -102,6 +102,24 @@ module.exports = {
           "https://data-seed-prebsc-1-s1.binance.org:8545"
         ),
       network_id: 97,
+      skipDryRun: true,
+    },
+    avax: {
+      provider: () =>
+        new HDWalletProvider(
+          privateKeys,
+          "https://api.avax.network/ext/bc/C/rpc"
+        ),
+      network_id: 1,
+      skipDryRun: true,
+    },
+    fuji: {
+      provider: () =>
+        new HDWalletProvider(
+          privateKeys,
+          "https://api.avax-test.network/ext/bc/C/rpc"
+        ),
+      network_id: 1,
       skipDryRun: true,
     },
   },
