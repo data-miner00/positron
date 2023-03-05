@@ -156,10 +156,12 @@ yarn build-storybook
 
 The list of milestones that is planned to fulfill following the initial release.
 
+- [ ] Personalized profile avatar
+- [ ] Redesign landing page
+- [ ] Make Nx monorepo
 - [ ] Add more chain such as Algorand.
 - [ ] Customize Storybook
-- [ ] Use Framer motion to animate elements
-- [ ] Personalized profile avatar
+- [x] Use Framer motion to animate elements
 
 ## Credits
 
