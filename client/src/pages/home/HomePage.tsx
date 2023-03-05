@@ -45,7 +45,7 @@ function HomePage() {
         description: `Volume in USD as of ${dateString}`,
       },
     ]);
-  }, [txCount, totalVolume]);
+  }, [txCount, totalVolume, dateString]);
 
   return (
     <div className="landing-page">
